@@ -22,63 +22,83 @@
       //check to see if we are just starting or have been playing
       if (trii !== -1) {
         // If we choose the same thing as the computer, modify varibles
-        var Guessed = guessStr.includes(guess);
-        
-        if (guess === computerGuess) {
-          wins++;
-          winFlag = true;
-          //and start the game over.
-          trii = 9;
-        }
-        if (guessStr == "") {
-          guessStr = guess;
+        var guessed = guessStr.includes(guess);
+        //if we have not guessed the letter before...keep on going.
+        if (guessed == false) {
+          //is letter contained in the word?
+          var found = computerGuess.includes(guess);
+          if (found == true) {
+            for (var i = 0; i < computerGuess.length; i++) {
+              console.log(computerGuess[i]);
+              if (disStr[i] == "-") {
+                console.log("disStrI:" + disStr[i])
+                if (computerGuess[i] == guess) {
+                  console.log("= guess")
+                  console.log("disStr.sub:" + disStr.substr(0, i));
+                  console.log("2 disStrsub:" + disStr.substr(i + disStr.length));
+                  disStr = disStr.substr(0, i) + guess + disStr.substr(i + disStr.length);
+                } else {
+                  console.log("else")
+                  if (computerGuess[i] !== " ") {
+                    console.log("2else")
+                    disStr = disStr.substr(0, i) + "-" + disStr.substr(i + disStr.length);
+                  } else {
+                    console.log("3else")
+                    disStr = disStr.substr(0, i) + "-" + disStr.substr(i + disStr.length);
+                  }
+                }
+              }
+            }
+            console.log("disStr: coming out:" + disStr);
+          }
 
-        } else {
-          guessStr = guessStr + "," + guess;
-        }
-        trii++;
-        guessLeft--;
+          }
+          if (guess === computerGuess) {
+            wins++;
+            winFlag = true;
+            //and start the game over.
+            trii = 12;
+          }
 
-        //Was it the 9th try.If so, reset varibles, and check for a loss
-        if (trii > 11) {
-          guessLeft = 12;
-          guessStr = "";
-          trii = 0;
-          if (winFlag == false) {
-            losses++
-          } else {
-            winFlag = false;
+          trii++;
+          guessLeft--;
+
+          //Was it the 12th try.If so, reset varibles, and check for a loss
+          if (trii > 11) {
+            guessLeft = 12;
+            guessStr = "";
+            trii = 0;
+            if (winFlag == false) {
+              losses++
+            } else {
+              winFlag = false;
+            }
           }
         }
-      }else {
+      } else {
         //first time the game is just starting.
-        console.log("in the first time");
-        trii=0;
-        console.log("disStr:"+disStr);
-        console.log("computerguess:"+ computerGuess);
-        for (var i = 0;i<computerGuess.length;i++){
-          
-          if (computerGuess[i]!==" ") {
-           console.log(computerGuess[i]);
-           disStr = disStr.replace(computerGuess[i],"-");
+        trii = 0;
+        for (var i = 0; i < computerGuess.length; i++) {
+          if (computerGuess[i] !== " ") {
+            disStr = disStr.replace(computerGuess[i], "-");
           }
-          
-        
+
+
         }
-        console.log("disStr= "+disStr);
+        console.log(computerGuess);
       }
 
 
-        // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses,
-        // and wins/losses/guesses left/string of guesses.
-        var html =
-          "<p>Wins: " + wins + "</p>" +
-          "<p>Losses: " + losses + "</p>" +
-          "<p>Guesses Left: " + guessLeft + "</p>" +
-          "<p>Guessed Letters: " +guessStr +"</p>" +
-          "<p>Current word: " + disStr + "</p>";
+      // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses,
+      // and wins/losses/guesses left/string of guesses.
+      var html =
+        "<p>Wins: " + wins + "</p>" +
+        "<p>Losses: " + losses + "</p>" +
+        "<p>Guesses Left: " + guessLeft + "</p>" +
+        "<p>Guessed Letters: " + guessStr + "</p>" +
+        "<p>Current word: " + disStr + "</p>";
 
-        // Set the inner HTML contents of the #game div to our html string
-        document.querySelector("#game").innerHTML = html;
+      // Set the inner HTML contents of the #game div to our html string
+      document.querySelector("#game").innerHTML = html;
 
     }
