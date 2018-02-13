@@ -1,5 +1,5 @@
     // Creates an array that lists out all of the options a-z.
-    var computerChoices = ["the faces", "al stewart", "todd rundgren"];
+    var computerChoices = ["THE FACES", "AL STEWART", "TODD RUNDGREN", "GERRY RAFFERTY","STEALERS WHEEL"];
 
     // Creating variables to hold the number of wins, losses, and ties. They start at 0.
     var wins = 0;
@@ -11,12 +11,14 @@
     var winFlag = false;
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     var disStr = computerGuess;
+    var band = "????????";
 
     // This function is run whenever the user presses a key.
     document.onkeyup = function (event) {
 
       // Determines which key was pressed.
       var guess = event.key;
+          guess = guess.toUpperCase();
 
 
       //check to see if we are just starting or have been playing
@@ -40,19 +42,12 @@
 
             disStr = computerGuess;
             for (var i = 0; i < computerGuess.length; i++) {
-             console.log("before after loop:"+computerGuess[i])
               if (guessStr.includes(computerGuess[i]) == false) {
                 //letter of computerguess is NOTin the list of guessed letters. hide it "-"
                 disStr = disStr.replace(computerGuess[i], "-");
-              
 
-              }else {}
 
-              //if (computerGuess[i] !== " ") {
-              //  disStr = disStr.replace(computerGuess[i], "-");
-              //}
-              //String.substr(0, index) + replacement + String.substr(index + replacement.length);
-
+              } 
             }
 
           } else { //(found == true) guess is in the word the else is not in the word
@@ -61,7 +56,7 @@
             guessLeft--;
 
           } // guess is not in word
-          if (guess === computerGuess) {
+          if (disStr == computerGuess) {
             wins++;
             winFlag = true;
             //and start the game over.
@@ -78,6 +73,7 @@
         guessLeft = 12;
         guessStr = "";
         trii = 0;
+        band =computerGuess;
         computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         disStr = computerGuess;
         for (var i = 0; i < computerGuess.length; i++) {
@@ -110,7 +106,8 @@
         "<p>Losses: " + losses + "</p>" +
         "<p>Guesses Left: " + guessLeft + "</p>" +
         "<p>Guessed Letters: " + guessStr + "</p>" +
-        "<p>Current word: " + disStr + "</p>";
+        "<p>Current word: " + disStr + "</p>" +
+        "<p>Band: " + band + "</p>";
 
       // Set the inner HTML contents of the #game div to our html string
       document.querySelector("#game").innerHTML = html;
