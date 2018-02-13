@@ -37,13 +37,25 @@
           if (found == true) {
             // now add letter to guessStr, loop through computerguess by letter checking for the letter in guessStr
             //while looping through recreate disStr. When disStr equals computerguess thats a win
-            for (var i = 0; i < computerGuess.length; i++) {
 
-              //has the letter been guessed
+            disStr = computerGuess;
+            for (var i = 0; i < computerGuess.length; i++) {
+             console.log("before after loop:"+computerGuess[i])
+              if (guessStr.includes(computerGuess[i]) == false) {
+                //letter of computerguess is NOTin the list of guessed letters. hide it "-"
+                disStr = disStr.replace(computerGuess[i], "-");
+              
+
+              }else {}
+
+              //if (computerGuess[i] !== " ") {
+              //  disStr = disStr.replace(computerGuess[i], "-");
+              //}
+              //String.substr(0, index) + replacement + String.substr(index + replacement.length);
 
             }
 
-          } else { //(found == true) guess is in the word
+          } else { //(found == true) guess is in the word the else is not in the word
 
             trii++;
             guessLeft--;
@@ -61,8 +73,7 @@
         } //(guessed == false) new letter pressed
       } // (trii !== -1)
       //Was it the 12th try.If so, reset varibles, and check for a loss
-      console.log("trii > 11:" + trii);
-      console.log("guessLeft:" + guessLeft);
+
       if (trii > 11) {
         guessLeft = 12;
         guessStr = "";
