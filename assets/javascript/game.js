@@ -25,33 +25,31 @@
         var guessed = guessStr.includes(guess);
         //if we have not guessed the letter before...keep on going.
         if (guessed == false) {
+          // add guess to guessStr
+          console.log("guess not in str: "+guessStr+" "+guess)
+          if (guessStr == "") {
+            guessStr = " " + guess;
+          } else {
+            guessStr = guessStr +","+ guess;
+          }
+          console.log("after add logic: "+guessStr+" "+guess)
           //is letter contained in the word?
           var found = computerGuess.includes(guess);
           if (found == true) {
             // now add letter to guessStr, loop through computerguess by letter checking for the letter in guessStr
             //while looping through recreate disStr. When disStr equals computerguess thats a win
-            if (guessStr == "") {
-              guessStr = " " + guess;
-            } else {
-              guessStr == guessStr + guess;
-            }
-            for (var i = 0; i < computerGuess.length; i++) {
-              console.log(computerGuess[i]);
+          for (var i = 0; i < computerGuess.length; i++) {
+             
               //has the letter been guessed
 
             }
-            console.log("disStr: coming out:" + disStr);
-          } //(found == true) guess is in the word
-          console.log(guessStr + "   " + guess)
-          if (guessStr == "") {
-            guessStr = " " + guess;
-          } else {
-            guessStr = guessStr + "," + guess;
-          }
+           
+          } else { //(found == true) guess is in the word
+            
+ 
+            guessLeft--;
 
-          guessLeft--;
-
-
+          } // guess is not in word
           if (guess === computerGuess) {
             wins++;
             winFlag = true;
@@ -60,7 +58,7 @@
           }
 
           trii++;
-         
+
         } //(guessed == false) new letter pressed
       } // (trii !== -1)
       //Was it the 12th try.If so, reset varibles, and check for a loss
@@ -83,7 +81,7 @@
 
 
         }
-        console.log(computerGuess);
+       
       }
 
 
