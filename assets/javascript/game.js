@@ -68,7 +68,12 @@
         guessStr = "";
         trii = 0;
         computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        
+        disStr = computerGuess;
+        for (var i = 0; i < computerGuess.length; i++) {
+          if (computerGuess[i] !== " ") {
+            disStr = disStr.replace(computerGuess[i], "-");
+          }
+        }
         if (winFlag == false) {
           losses++
         } else {
@@ -77,7 +82,6 @@
       } else {
         if (trii < 0) {
           //first time the game is just starting.
-          console.log("trii is getting set to 0 " + trii);
           trii = 0;
           for (var i = 0; i < computerGuess.length; i++) {
             if (computerGuess[i] !== " ") {
