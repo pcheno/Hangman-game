@@ -7,7 +7,7 @@
     var guess = "";
     var guessStr = "";
     var guessLeft = 12;
-    var trii = -1;
+    var trii = -1; //negative identifies first time through
     var winFlag = false;
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     var disStr = computerGuess;
@@ -26,27 +26,26 @@
         //if we have not guessed the letter before...keep on going.
         if (guessed == false) {
           // add guess to guessStr
-          console.log("guess not in str: "+guessStr+" "+guess)
           if (guessStr == "") {
             guessStr = " " + guess;
           } else {
-            guessStr = guessStr +","+ guess;
+            guessStr = guessStr + "," + guess;
           }
-          console.log("after add logic: "+guessStr+" "+guess)
+
           //is letter contained in the word?
           var found = computerGuess.includes(guess);
           if (found == true) {
             // now add letter to guessStr, loop through computerguess by letter checking for the letter in guessStr
             //while looping through recreate disStr. When disStr equals computerguess thats a win
-          for (var i = 0; i < computerGuess.length; i++) {
-             
+            for (var i = 0; i < computerGuess.length; i++) {
+
               //has the letter been guessed
 
             }
-           
+
           } else { //(found == true) guess is in the word
-            
- 
+
+            trii++;
             guessLeft--;
 
           } // guess is not in word
@@ -57,31 +56,35 @@
             trii = 12;
           }
 
-          trii++;
+
 
         } //(guessed == false) new letter pressed
       } // (trii !== -1)
       //Was it the 12th try.If so, reset varibles, and check for a loss
+      console.log("trii > 11:" + trii);
+      console.log("guessLeft:" + guessLeft);
       if (trii > 11) {
         guessLeft = 12;
         guessStr = "";
         trii = 0;
+        computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        
         if (winFlag == false) {
           losses++
         } else {
           winFlag = false;
         }
       } else {
-        //first time the game is just starting.
-        trii = 0;
-        for (var i = 0; i < computerGuess.length; i++) {
-          if (computerGuess[i] !== " ") {
-            disStr = disStr.replace(computerGuess[i], "-");
+        if (trii < 0) {
+          //first time the game is just starting.
+          console.log("trii is getting set to 0 " + trii);
+          trii = 0;
+          for (var i = 0; i < computerGuess.length; i++) {
+            if (computerGuess[i] !== " ") {
+              disStr = disStr.replace(computerGuess[i], "-");
+            }
           }
-
-
         }
-       
       }
 
 
