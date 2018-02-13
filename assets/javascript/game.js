@@ -28,31 +28,30 @@
           //is letter contained in the word?
           var found = computerGuess.includes(guess);
           if (found == true) {
+            // now add letter to guessStr, loop through computerguess by letter checking for the letter in guessStr
+            //while looping through recreate disStr. When disStr equals computerguess thats a win
+            if (guessStr == "") {
+              guessStr = " " + guess;
+            } else {
+              guessStr == guessStr + guess;
+            }
             for (var i = 0; i < computerGuess.length; i++) {
               console.log(computerGuess[i]);
-              if (disStr[i] == "-") {
-                console.log("disStrI:" + disStr[i])
-                if (computerGuess[i] == guess) {
-                  console.log("= guess")
-                  console.log("disStr.sub:" + disStr.substr(0, i));
-                  console.log("2 disStrsub:" + disStr.substr(i + disStr.length));
-                  disStr = disStr.substr(0, i) + guess + disStr.substr(i + disStr.length);
-                } else {
-                  console.log("else")
-                  if (computerGuess[i] !== " ") {
-                    console.log("2else")
-                    disStr = disStr.substr(0, i) + "-" + disStr.substr(i + disStr.length);
-                  } else {
-                    console.log("3else")
-                    disStr = disStr.substr(0, i) + "-" + disStr.substr(i + disStr.length);
-                  }
-                }
-              }
+              //has the letter been guessed
+
             }
             console.log("disStr: coming out:" + disStr);
+          } //(found == true) guess is in the word
+          console.log(guessStr + "   " + guess)
+          if (guessStr == "") {
+            guessStr = " " + guess;
+          } else {
+            guessStr = guessStr + "," + guess;
           }
 
-          }
+          guessLeft--;
+
+
           if (guess === computerGuess) {
             wins++;
             winFlag = true;
@@ -61,19 +60,18 @@
           }
 
           trii++;
-          guessLeft--;
-
-          //Was it the 12th try.If so, reset varibles, and check for a loss
-          if (trii > 11) {
-            guessLeft = 12;
-            guessStr = "";
-            trii = 0;
-            if (winFlag == false) {
-              losses++
-            } else {
-              winFlag = false;
-            }
-          }
+         
+        } //(guessed == false) new letter pressed
+      } // (trii !== -1)
+      //Was it the 12th try.If so, reset varibles, and check for a loss
+      if (trii > 11) {
+        guessLeft = 12;
+        guessStr = "";
+        trii = 0;
+        if (winFlag == false) {
+          losses++
+        } else {
+          winFlag = false;
         }
       } else {
         //first time the game is just starting.
@@ -100,5 +98,4 @@
 
       // Set the inner HTML contents of the #game div to our html string
       document.querySelector("#game").innerHTML = html;
-
     }
