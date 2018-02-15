@@ -77,7 +77,7 @@
     function createDisStr() {
       game.disStr = computerGuess.name;
       for (var i = 0; i < computerGuess.name.length; i++) {
-        if (game.guessStr.includes(computerGuess[i]) == false) {
+        if (game.guessStr.includes(computerGuess.name[i]) == false) {
           //letter of computerguess is NOTin the list of guessed letters. hide it "-"
           game.disStr = game.disStr.replace(computerGuess.name[i], "-");
         }
@@ -147,6 +147,7 @@
         if (trii < 0) {
           //first time the game is just starting.
           trii = 0;
+          game.disStr = computerGuess.name;
           for (var i = 0; i < computerGuess.name.length; i++) {
             if (computerGuess.name[i] !== " ") {
               game.disStr = game.disStr.replace(computerGuess.name[i], "-");
@@ -158,6 +159,7 @@
 
       // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses,
       // and wins/losses/guesses left/string of guesses.
+      console.log("computer pick: "+computerGuess.name)
       var html =
         "<p>Wins: " + game.wins + "</p>" +
         "<p>Losses: " + game.losses + "</p>" +
