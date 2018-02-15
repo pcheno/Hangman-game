@@ -1,50 +1,8 @@
     // Creates an array that lists out all of the options a-z.
-    var computerChoices = [{
-        name: "THE FACES",
-        image: "./assets/images/theFaces",
-        song: "./assets/music/theFaces"
-      },
-      {
-        name: "AL STEWART",
-        image: "./assets/images/alStewart",
-        song: "./assets/music/alStewart"
-      },
-      {
-        name: "TODD RUNDGREN",
-        image:  "./assets/images/toddRundgren",
-        song: "./assets/music/toddRundgren"
-      },
-      {
-        name: "GERRY RAFFERTY",
-        image:  "./assets/images/gerryRafferty.jpg",
-        song: "./assets/music/bakerStreet.wav"
-      },
-      {
-        name: "STEALERS WHEEL",
-        image: "./assets/images/stealersWheel",
-        song: "./assets/music/stealerWheel"
-      }
+    var computerChoices = ["THE FACES", "AL STEWART", "TODD RUNDGREN", "GERRY RAFFERTY", "STEALERS WHEEL"];
 
-      "THE FACES", "AL STEWART", "TODD RUNDGREN", "GERRY RAFFERTY", "STEALERS WHEEL"
-    ];
-
-    var cmpChoice = {
-      bands: {
-        faces: {
-          name: "THE FACES",
-          img: "./assets",
-          song: "./"
-        },
-        antoher
-      }
-    }
-
-    var chosenBand;
     // Creating variables to hold the number of wins, losses, and ties. They start at 0.
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-    var chosenBand = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
 
     var game = {
       "wins": 0,
@@ -122,8 +80,6 @@
         game.band = computerGuess;
         computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         createDisStr();
-        //this is where img and audio get updated.
-
         if (winFlag == false) {
           game.losses++;
         } else {
