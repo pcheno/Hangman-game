@@ -1,28 +1,43 @@
     // Creates an array that lists out all of the options a-z.
     var computerChoices = [{
         name: "THE FACES",
-        image: "./assets/images/theFaces",
-        song: "./assets/music/theFaces"
+        image: "./assets/images/theFaces.jpg",
+        song: "./assets/music/oohLaLa.mp3"
       },
       {
         name: "AL STEWART",
-        image: "./assets/images/alStewart",
-        song: "./assets/music/alStewart"
+        image: "./assets/images/alStewart.jpg",
+        song: "./assets/music/timePassages.mp3"
       },
       {
         name: "TODD RUNDGREN",
-        image:  "./assets/images/toddRundgren",
-        song: "./assets/music/toddRundgren"
+        image:  "./assets/images/toddRundgren.jpg",
+        song: "./assets/music/helloItsMe.mp3"
       },
       {
         name: "GERRY RAFFERTY",
         image:  "./assets/images/gerryRafferty.jpg",
-        song: "./assets/music/bakerStreet.wav"
+        song: "./assets/music/bakerStreet.mp3"
       },
       {
         name: "STEALERS WHEEL",
-        image: "./assets/images/stealersWheel",
-        song: "./assets/music/stealerWheel"
+        image: "./assets/images/stealersWheel.jpg",
+        song: "./assets/music/stuckInTheMiddle.mp3"
+      },
+      {
+        name: "SWEET",
+        image: "./assets/images/sweet.jpg",
+        song: "./assets/music/foxOnTheRun.mp3"
+      },
+      {
+        name: "10CC",
+        image: "./assets/images/10cc.jpg",
+        song: "./assets/music/imNotInLove.mp3"
+      },
+      {
+        name: "HARRY NILSSON",
+        image: "./assets/images/harryNilsson.jpg",
+        song: "./assets/music/everybodysTalkin.mp3"
       }
 
       "THE FACES", "AL STEWART", "TODD RUNDGREN", "GERRY RAFFERTY", "STEALERS WHEEL"
