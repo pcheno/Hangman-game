@@ -11,12 +11,12 @@
       },
       {
         name: "TODD RUNDGREN",
-        image:  "./assets/images/toddRundgren.jpg",
+        image: "./assets/images/toddRundgren.jpg",
         song: "./assets/music/helloItsMe.mp3"
       },
       {
         name: "GERRY RAFFERTY",
-        image:  "./assets/images/gerryRafferty.jpg",
+        image: "./assets/images/gerryRafferty.jpg",
         song: "./assets/music/bakerStreet.mp3"
       },
       {
@@ -38,27 +38,26 @@
         name: "HARRY NILSSON",
         image: "./assets/images/harryNilsson.jpg",
         song: "./assets/music/everybodysTalkin.mp3"
+      },
+      {
+        name: "SEAL AND CROFT",
+        image: "./assets/images/sealsAndCroft.jpg",
+        song: "./assets/music/summerBreeze.mp3"
+      },
+      {
+        name: "GILBERT SULLIVAN",
+        image: "./assets/images/gilbertSullivan.jpg",
+        song: "./assets/music/aloneAgain.mp3"
       }
-
-      "THE FACES", "AL STEWART", "TODD RUNDGREN", "GERRY RAFFERTY", "STEALERS WHEEL"
     ];
 
-    var cmpChoice = {
-      bands: {
-        faces: {
-          name: "THE FACES",
-          img: "./assets",
-          song: "./"
-        },
-        antoher
-      }
-    }
 
-    var chosenBand;
+
+
     // Creating variables to hold the number of wins, losses, and ties. They start at 0.
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-    var chosenBand = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
 
 
     var game = {
@@ -76,11 +75,11 @@
 
     //function to recreate the display word
     function createDisStr() {
-      game.disStr = computerGuess;
-      for (var i = 0; i < computerGuess.length; i++) {
+      game.disStr = computerGuess.name;
+      for (var i = 0; i < computerGuess.name.length; i++) {
         if (game.guessStr.includes(computerGuess[i]) == false) {
           //letter of computerguess is NOTin the list of guessed letters. hide it "-"
-          game.disStr = game.disStr.replace(computerGuess[i], "-");
+          game.disStr = game.disStr.replace(computerGuess.name[i], "-");
         }
       }
     }
@@ -105,7 +104,7 @@
 
           //is letter contained in the word?
 
-          if (computerGuess.includes(game.guess)) {
+          if (computerGuess.name.includes(game.guess)) {
             // now add letter to guessStr, loop through computerguess by letter checking for the letter in guessStr
             //while looping through recreate disStr. When disStr equals computerguess thats a win
 
@@ -117,7 +116,7 @@
             game.guessLeft--;
 
           } // guess is not in word
-          if (game.disStr == computerGuess) {
+          if (game.disStr == computerGuess.name) {
             game.wins++;
             winFlag = true;
             //and start the game over.
@@ -134,7 +133,7 @@
         game.guessLeft = 12;
         game.guessStr = "";
         trii = 0;
-        game.band = computerGuess;
+        game.band = computerGuess.name;
         computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         createDisStr();
         //this is where img and audio get updated.
@@ -148,9 +147,9 @@
         if (trii < 0) {
           //first time the game is just starting.
           trii = 0;
-          for (var i = 0; i < computerGuess.length; i++) {
-            if (computerGuess[i] !== " ") {
-              game.disStr = game.disStr.replace(computerGuess[i], "-");
+          for (var i = 0; i < computerGuess.name.length; i++) {
+            if (computerGuess.name[i] !== " ") {
+              game.disStr = game.disStr.replace(computerGuess.name[i], "-");
             }
           }
         }
