@@ -82,7 +82,7 @@
     function createDisStr() {
       game.disStr = computerGuess.name;
       for (var i = 0; i < computerGuess.name.length; i++) {
-        if (game.guessStr.includes(computerGuess.name[i]) == false) {
+        if ((game.guessStr.includes(computerGuess.name[i]) == false) && (computerGuess.name[i]!=" ")) {
           //letter of computerguess is NOTin the list of guessed letters. hide it "-"
           game.disStr = game.disStr.replace(computerGuess.name[i], "-");
         }
@@ -91,7 +91,7 @@
 
     // This function is run whenever the user presses a key.
     document.onkeyup = function (event) {
-
+    
       game.guess = event.key.toUpperCase();
 
       //check to see if we are just starting or have been playing
@@ -138,12 +138,13 @@
         game.guessLeft = 12;
         game.guessStr = "";
         trii = 0;
+        // debugger
         //this is where img and audio get updated.
-        html =
-          "<img src='" + band.pict + "' alt=''>" +
-          "<audio controls='controls' autoplay='autoplay'>" +
-          "<source src='" + band.song + "' type='audio/mp3>" +
-          "</audio>"
+        var img = `<img src=${computerGuess.image} />`
+        
+        var audio = `<audio controls='controls' autoplay><source src='${computerGuess.song}' type='audio/mp3'/></audio>`
+        html = img + audio
+        console.log(html)
         document.querySelector("#band").innerHTML = html;
 
         game.band = computerGuess.name;
