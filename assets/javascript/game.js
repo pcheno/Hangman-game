@@ -4,7 +4,7 @@
         image: "./assets/images/theFaces.jpg",
         song: "./assets/music/oohLaLa.mp3"
       },
-      {
+   /*   {
         name: "AL STEWART",
         image: "./assets/images/alStewart.jpg",
         song: "./assets/music/timePassages.mp3"
@@ -33,7 +33,7 @@
         name: "10CC",
         image: "./assets/images/10cc.jpg",
         song: "./assets/music/imNotInLove.mp3"
-      },
+      },*/
       {
         name: "HARRY NILSSON",
         image: "./assets/images/harryNilsson.jpg",
