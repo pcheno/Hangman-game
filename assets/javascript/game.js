@@ -40,7 +40,7 @@
         song: "./assets/music/everybodysTalkin.mp3"
       },
       {
-        name: "SEAL AND CROFT",
+        name: "SEALS AND CROFT",
         image: "./assets/images/sealsAndCroft.jpg",
         song: "./assets/music/summerBreeze.mp3"
       },
