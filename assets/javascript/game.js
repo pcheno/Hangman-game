@@ -140,9 +140,9 @@
         trii = 0;
         // debugger
         //this is where img and audio get updated.
-        var img = `<img src=${computerGuess.image} />`
+        var img = `<div class='col-6'><img src=${computerGuess.image} />`
         
-        var audio = `<audio controls='controls' autoplay><source src='${computerGuess.song}' type='audio/mp3'/></audio>`
+        var audio = `<audio controls='controls' autoplay><source src='${computerGuess.song}' type='audio/mp3'/></audio></div>`
         html = img + audio
         console.log(html)
         document.querySelector("#band").innerHTML = html;

@@ -1,0 +1,12 @@
+header {
+    background: yellowgreen;
+    text-align: center;
+}
+.container {
+    text-align: center;
+}
+
+#band {
+    display: flex;
+    justify-content: center;
+}
