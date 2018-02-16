@@ -17,7 +17,7 @@
       {
         name: "GERRY RAFFERTY",
         image: "./assets/images/gerryRafferty.jpg",
-        song: "./assets/music/bakerStreet.mp3"
+        song: "./assets/music/bakersStreet.mp3"
       },
       {
         name: "STEALERS WHEEL",
