@@ -4,7 +4,7 @@
         image: "./assets/images/theFaces.jpg",
         song: "./assets/music/oohLaLa.mp3"
       },
-   /*   {
+      {
         name: "AL STEWART",
         image: "./assets/images/alStewart.jpg",
         song: "./assets/music/timePassages.mp3"
@@ -33,7 +33,7 @@
         name: "10CC",
         image: "./assets/images/10cc.jpg",
         song: "./assets/music/imNotInLove.mp3"
-      },*/
+      },
       {
         name: "HARRY NILSSON",
         image: "./assets/images/harryNilsson.jpg",
@@ -82,7 +82,7 @@
     function createDisStr() {
       game.disStr = computerGuess.name;
       for (var i = 0; i < computerGuess.name.length; i++) {
-        if ((game.guessStr.includes(computerGuess.name[i]) == false) && (computerGuess.name[i]!=" ")) {
+        if ((game.guessStr.includes(computerGuess.name[i]) == false) && (computerGuess.name[i] != " ")) {
           //letter of computerguess is NOTin the list of guessed letters. hide it "-"
           game.disStr = game.disStr.replace(computerGuess.name[i], "-");
         }
@@ -91,7 +91,7 @@
 
     // This function is run whenever the user presses a key.
     document.onkeyup = function (event) {
-    
+
       game.guess = event.key.toUpperCase();
 
       //check to see if we are just starting or have been playing
@@ -141,7 +141,7 @@
         // debugger
         //this is where img and audio get updated.
         var img = `<div class='col-6'><img src=${computerGuess.image} />`
-        
+
         var audio = `<audio controls='controls' autoplay><source src='${computerGuess.song}' type='audio/mp3'/></audio></div>`
         html = img + audio
         console.log(html)
