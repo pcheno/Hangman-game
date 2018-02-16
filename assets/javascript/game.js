@@ -66,10 +66,15 @@
       "guess": "",
       "guessStr": "",
       "guessLeft": 12,
-      "band": "????????",
-      "disStr": computerGuess
+      "band": "SWEET",
+      "disStr": computerGuess.name
     };
+    var band = {
+      "pict": computerGuess.image,
+      "song": computerGuess.song
+    }
 
+    var html = "";
     var winFlag = false;
     var trii = -1; //negative identifies first time through
 
@@ -133,10 +138,17 @@
         game.guessLeft = 12;
         game.guessStr = "";
         trii = 0;
+        //this is where img and audio get updated.
+        html =
+          "<img src='" + band.pict + "' alt=''>" +
+          "<audio controls='controls' autoplay='autoplay'>" +
+          "<source src='" + band.song + "' type='audio/mp3>" +
+          "</audio>"
+        document.querySelector("#band").innerHTML = html;
+
         game.band = computerGuess.name;
         computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         createDisStr();
-        //this is where img and audio get updated.
 
         if (winFlag == false) {
           game.losses++;
@@ -147,20 +159,15 @@
         if (trii < 0) {
           //first time the game is just starting.
           trii = 0;
-          game.disStr = computerGuess.name;
-          for (var i = 0; i < computerGuess.name.length; i++) {
-            if (computerGuess.name[i] !== " ") {
-              game.disStr = game.disStr.replace(computerGuess.name[i], "-");
-            }
-          }
+          createDisStr();
         }
       }
 
 
       // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses,
       // and wins/losses/guesses left/string of guesses.
-      console.log("computer pick: "+computerGuess.name)
-      var html =
+      console.log("computer pick: " + computerGuess.name)
+      html =
         "<p>Wins: " + game.wins + "</p>" +
         "<p>Losses: " + game.losses + "</p>" +
         "<p>Guesses Left: " + game.guessLeft + "</p>" +
