@@ -167,7 +167,7 @@
 
       // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses,
       // and wins/losses/guesses left/string of guesses.
-      console.log("computer pick: " + computerGuess.name)
+    
       html =
         "<p>Wins: " + game.wins + "</p>" +
         "<p>Losses: " + game.losses + "</p>" +
