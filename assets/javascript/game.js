@@ -144,7 +144,7 @@
 
         var audio = `<audio controls='controls' autoplay><source src='${computerGuess.song}' type='audio/mp3'/></audio></div>`
         html = img + audio
-        console.log(html)
+       
         document.querySelector("#band").innerHTML = html;
 
         game.band = computerGuess.name;
